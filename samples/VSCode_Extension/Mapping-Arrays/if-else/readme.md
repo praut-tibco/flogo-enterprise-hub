@@ -12,21 +12,27 @@ This sample demonstrates an example of conditional data mappings using if-else b
 
 ## Import the sample
 
-1. Download the sample's .json file 'conditional_mappings_ifelse.json'
+1. Download the sample's .flogo file 'conditional_mappings_ifelse.flogo'
 
 2. Create a new empty app.
-![Create an app](../../images/mapping-arrays/CreateApp.png)
+![Create an app](../../images/mapping-arrays/CreateNewApp.png)
 
 3. On the app details page, select Import app.
 ![Select import](../../images/mapping-arrays/ImportApp.png)
 
-4. Browse on your machine or drag and drop the .json file for the app that you want to import.
-![Import your sample](../../images/mapping-arrays/ImportYourSamples.png)
+4. Browse on your machine or drag and drop the .flogo file for the app that you want to import.
+![Import your sample](../../images/mapping-arrays/ImportSample.png)
 
 5. Click Upload. The Import app dialog displays some generic errors and warnings as well as any specific errors or warnings pertaining to the app you are importing. It validates whether all the activities and triggers used in the app are available in the Extensions tab.
 ![The Import app dialog](../../images/mapping-arrays/ImportAppDialog.png)
 
-6. You have the option to import all flows from the source app or selectively import flows.
+6. You can import all flows & schemas from the source app that are selected.
+For the conditional_mappings_ifelse application, the flows & schemas available for import are:
+display_orderDetails
+post_orderDetails
+removeJsonAttributes_orderDetails
+order
+![One Or More flows](../../images/mapping-arrays/OneOrMoreFlows.png)
 
 7. If you choose selective import, select the trigger and flow. Click Next.
 
@@ -39,10 +45,10 @@ If the condition matches, we show all attributes in output json along with feedb
 
 * Similarly, to achieve the second objective to remove an attribute from output which is not present in POST body, we can use isdefined() function in if condition. In second flow 'removeJsonTags_orderDetails', we are checking if item[] attribute is present in POST body using the if condition 'isdefined( $activity[call_postOrderDetails].ShoppingCartOrder.ShoppingCartOrder.Item)'. If present or defined then display all order details else do not display item[], sheipment[] and feedback attributes in the output.
 
-![The flows](../../images/mapping-arrays/TheFlows.png)
-![If Condition First Flow](../../images/mapping-arrays/IfConditionFirstFlow.png)
-![Else Block Mappings First Flow](../../images/mapping-arrays/ElseBlockMappingFirstFlow.png)
-![If Conditions Second Flow](../../images/mapping-arrays/IfConditionSecondFlow.png)
+![The flows](../../images/mapping-arrays/TheFlow.png)
+![If Condition First Flow](../../images/mapping-arrays/FirstFlowIfCondition.png)
+![Else Block Mappings First Flow](../../images/mapping-arrays/FirstFlowElseCondition.png)
+![If Conditions Second Flow](../../images/mapping-arrays/SecondFlowIfCondition.png)
 
 * We might think of ternary operator to achieve this but that would end up setting null or empty value "". So Feedback cannot be removed from output using this approach. It would show null or "".  
 For example, $activity[call_postOrderDetails].ShoppingCartOrder.ShoppingCartOrder.Status == "delivered" ?  $activity[call_postOrderDetails].ShoppingCartOrder.ShoppingCartOrder.Feedback : null
@@ -79,7 +85,7 @@ Once it reaches to Running state, go to API tester and hit tryout the first endp
     ]
   }
 }
-![POST Body API Tester First Flow](../../images/mapping-arrays/RunTheApplicationFirstEndPoint.png)
+![POST Body API Tester First Flow](../../images/mapping-arrays/PostBodyFirstFlow.png)
 
 For second endpoint, you can use the below input JSON (Note that there is no Item[]):
 * {
@@ -102,35 +108,18 @@ For second endpoint, you can use the below input JSON (Note that there is no Ite
     ]
   }
 }
-![POST Body API Tester Second Flow](../../images/mapping-arrays/RunTheApplicationSecondEndPoint.png)
+![POST Body API Tester Second Flow](../../images/mapping-arrays/PostBodySecondFlow.png)
 
 ## Outputs
 
 1. Output of first flow:
-![Output Logs First Flow](../../images/mapping-arrays/OutputOfFirstFlow.png)
+![Output Logs First Flow](../../images/mapping-arrays/FirstFlowLogs.png)
 
 2. Endpoint Response for second flow
-![Endpoint Response Second Flow](../../images/mapping-arrays/EndPointResponseForSecondFlow.png)
+![Endpoint Response Second Flow](../../images/mapping-arrays/EndpointResponseforSecondflow.png)
 
 3. Application Logs for second flow
-![Output Logs Second Flow](../../images/mapping-arrays/ApplicationLogsForSecondFlow.png)
-
-## Contributing
-If you want to build your own activities for Flogo please read the docs here.
-
-If you want to showcase your project, check out [tci-awesome](https://github.com/TIBCOSoftware/tci-awesome)
-
-You can also send an email to `tci@tibco.com`
-
-## Feedback
-If you have feedback, don't hesitate to talk to us!
-
-* Submit feature requests on our [TCI Ideas](https://ideas.tibco.com/?project=TCI) or [FE Ideas](https://ideas.tibco.com/?project=FE) portal
-* Ask questions on the [TIBCO Community](https://community.tibco.com/answers/product/344006)
-* Send us a note at `tci@tibco.com`
+![Output Logs Second Flow](../../images/mapping-arrays/LogsOfSecondFlow.png)
 
 ## Help
-Please visit our [TIBCO Cloud<sup>&trade;</sup> Integration documentation-Conditional Mappings](https://integration.cloud.tibco.com/docs/index.html#Subsystems/flogo/flogo-all/conditional-mapping.html) for additional information.
-
-## License
-This TCI Flogo SDK and Samples project is licensed under a BSD-type license. See [license.txt](license.txt).
+Please visit our [TIBCO Flogo® Extension for Visual Studio Code 1.3.5](https://docs.tibco.com/pub/flogo-vscode/latest/doc/html/Default.htm#flogo-vscode-user-guide/app-development/creating-flows-triggers/flows/attaching-a-flow-to-.htm) 
