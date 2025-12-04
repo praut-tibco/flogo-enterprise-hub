@@ -10,7 +10,7 @@ This sample demonstrates an example of conditional data mappings using if-else b
 
 * Access to Tibco Cloud Integration - Develop
 
-## Copy the sample
+## Copy App
 
 1. Copy the conditional_mappings_ifelse.flogo app into your workspace.
 ![Copy App](../../images/mapping-arrays/CopyApp.png)
