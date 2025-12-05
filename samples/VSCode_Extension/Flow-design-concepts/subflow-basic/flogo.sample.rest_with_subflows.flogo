@@ -11,7 +11,7 @@
     "git.tibco.com/git/product/ipaas/wi-contrib.git/function/utility",
     "github.com/project-flogo/contrib/function/string"
   ],
-  "name": "New_Flogo_App_81",
+  "name": "flogo.sample.rest_with_subflows",
   "description": "",
   "version": "1.0.0",
   "type": "flogo:app",
@@ -264,6 +264,13 @@
                     "type": "json",
                     "value": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"message\":{\"type\":\"string\"}}}",
                     "fe_metadata": "{\n    \"message\":\"\"\n}"
+                  }
+                },
+                "output": {
+                  "output": {
+                    "type": "json",
+                    "value": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"response\":{\"type\":\"string\"}}}",
+                    "fe_metadata": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"response\":{\"type\":\"string\"}}}"
                   }
                 }
               },
@@ -749,14 +756,14 @@
         "protocol": "http",
         "port": "9999",
         "spec": {
-          "name": "New_Flogo_App_81",
+          "name": "flogo.sample.rest_with_subflows",
           "version": "1.0.0"
         },
         "title": "ReceiveHTTPMessage",
         "swagger": {
           "swagger": "2.0",
           "info": {
-            "title": "New_Flogo_App_81",
+            "title": "flogo.sample.rest_with_subflows",
             "version": "1.0.0",
             "description": "Simple REST Trigger"
           },
